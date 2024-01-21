@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Anki Description Shaping System</title>
+    <link rel="stylesheet" href="./new_liner.css">
+    <!-- <link rel="icon" href="./favicon.ico" type="image/x-icon"> -->
+  </head>
+  <body>
+    <main>
+        <h1>Anki Description Shaping System.</h1>  
+        Ankiで裏面に使用する説明文を作成したいときに使用する。
+    </main>
+    
+    <textarea id="TA_Input" name="w3review" rows="12" cols="50"  onkeyup="AdjustSentence()"></textarea>
+
+    <br>
+    <div>output</div>
+    <textarea id="TA_Output" name="w3review" rows="12" cols="50"></textarea>
+
+	  <!-- <script src="index.js"></script> -->
+    <script>
+      function AdjustSentence() {
+        // input.
+        var ta_Input = document.getElementById("TA_Input");
+        var ta_Output = document.getElementById("TA_Output");
+        var input_text = ta_Input.value;
+
+        // process.
+        var discription_text = input_text.replaceAll("\n", "<br>\n")
+        var output_text = "<i><span style=\"font-size:small\"><br><br>\n"+discription_text+"<br>\n\n</span></i>"
+
+        // output.
+        ta_Output.value = output_text;
+
+      }
+
+    </script>
+  </body>
+</html>
